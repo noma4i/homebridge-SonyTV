@@ -141,7 +141,7 @@ HttpAccessory.prototype = {
     		Characteristic.call(this, 'Volume', '19E1CF82-E0EE-410D-A23C-E80020354C13');
     		this.setProps({
 		 format: Characteristic.Formats.INT,
-		 unit: Characteristic.Units.PERCENTAGE,
+		 unit: Characteristic.Units.NONE,
 		 maxValue: 100,
 		 minValue: 0,
 		 minStep: 1,
@@ -159,7 +159,7 @@ HttpAccessory.prototype = {
     		Characteristic.call(this, 'Channel', '212131F4-2E14-4FF4-AE13-C97C3232499D');
     		this.setProps({
 		 format: Characteristic.Formats.INT,
-		 unit: Characteristic.Units.PERCENTAGE,
+		 unit: Characteristic.Units.NONE,
 		 maxValue: 100,
 		 minValue: 0,
 		 minStep: 1,
