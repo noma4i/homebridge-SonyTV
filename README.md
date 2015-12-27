@@ -14,20 +14,25 @@ Put your TVs IP Adress into the config
 Configuration sample:
 
  ```
-"accessories": [
+  "accessories": [
+        {
+            "accessory": "WeMo",
+            "name": "WeMo Switch",
+            "description": "The Lamp in the Bedroom",
+            "wemo_name": "WeMo Switch"
+        },
         {
             "accessory": "Http",
             "name": "TV",
-            "api_url": "http://tv-ip-address/sony/IRCC?",
+            "api_url": "http://192.168.178.25/sony/IRCC?",
             "http_method": "POST",
-            "volumeUp_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAASAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
-            "volumeDown_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAATAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
-            "channelUp_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAAQAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
-            "channelDown_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAARAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
-			"username": "",
-			"password": "",
-			"sendimmediately": "",
-            "http_method": "POST",
+            "volumeUp_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s=",
+            "volumeDown_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:",
+            "channelUp_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s",
+            "channelDown_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns",
+            "username": "",
+            "password": "",
+            "sendimmediately": ""
         }
     ]
 
