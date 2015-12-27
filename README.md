@@ -1,16 +1,14 @@
-# homebridge-http
+# homebridge-http-SonyTV
 
-Supports https devices on HomeBridge Platform
+Supports Sony TVs on HomeBridge Platform
 
 # Installation
 
-1. Install homebridge using: npm install -g homebridge
-2. Install this plugin using: npm install -g homebridge-http
-3. Update your configuration file. See sample-config.json in this repository for a sample. 
+TODO
 
 # Configuration
 
-if your http method for brightness is different to switching then add "http_brightness_method" to your config to set this - it will default to http_method if not present.
+Put your TVs IP Adress into the config
 
 Configuration sample:
 
@@ -18,19 +16,18 @@ Configuration sample:
 "accessories": [
         {
             "accessory": "Http",
-            "name": "Kitchen Lamp",
-            "on_url": "https://192.168.1.22:3030/devices/23222/on",
-            "on_body": "{\"state\":\"On\"}",
-            "off_url": "https://192.168.1.22:3030/devices/23222/off",
-            "off_body": "{\"state\":\"Off\"}",
-            "brightness_url": "https://192.168.1.22:3030/devices/23222/brightness/%b",
+            "name": "TV",
+            "api_url": "http://tv-ip-address/sony/IRCC?",
+            "http_method": "POST",
+            "volumeUp_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAASAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
+            "volumeDown_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAATAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
+            "channelUp_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAAQAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
+            "channelDown_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAARAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
 			"username": "",
 			"password": "",
 			"sendimmediately": "",
             "http_method": "POST",
-            "http_brightness_method": "POST",       
 			"service": "Switch",
-			"brightnessHandling": "no"
         }
     ]
 
