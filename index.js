@@ -4,7 +4,7 @@ var request = require("request");
 module.exports = function(homebridge){
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
-  homebridge.registerAccessory("homebridge-http", "Http", HttpAccessory);
+  homebridge.registerAccessory("homebridge-sonytv", "Http", HttpAccessory);
 }
 
 
@@ -21,7 +21,6 @@ function HttpAccessory(log, config) {
 	this.username = config["username"];
 	this.password = config["password"];
 	this.sendimmediately = config["sendimmediately"];
-	this.service = config["service"] || "Switch";
 	this.name = config["name"];
 }
 
