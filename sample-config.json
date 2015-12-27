@@ -10,22 +10,21 @@
 
     "platforms": [],
 
-    "accessories": [
+   "accessories": [
         {
             "accessory": "Http",
-            "name": "Kitchen Lamp",
-            "on_url": "https://192.168.1.22:3030/devices/23222/on",
-            "on_body": "{\"state\":\"On\"}",
-            "off_url": "https://192.168.1.22:3030/devices/23222/off",
-            "off_body": "{\"state\":\"Off\"}",
-            "brightness_url": "https://192.168.1.22:3030/devices/23222/brightness/%b",
-			"username": "",
-			"password": "",
-			"sendimmediately": "",
+            "name": "TV",
+            "api_url": "http://tv-ip-address/sony/IRCC?",
             "http_method": "POST",
-            "http_brightness_method": "POST",
-			"service": "Switch",
-			"brightnessHandling": "no"
+            "volumeUp_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAASAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
+            "volumeDown_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAATAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
+            "channelUp_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAAQAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
+            "channelDown_body": "<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1"><IRCCCode>AAAAAQAAAAEAAAARAw==</IRCCCode></u:X_SendIRCC></s:Body></s:Envelope>",
+            "username": "",
+            "password": "",
+            "sendimmediately": "",
+            "http_method": "POST",
+            "service": "Switch",
         }
     ]
 }
