@@ -28,7 +28,6 @@ Configuration sample:
 			"password": "",
 			"sendimmediately": "",
             "http_method": "POST",
-			"service": "Switch",
         }
     ]
 
