@@ -116,39 +116,17 @@ HttpAccessory.prototype = {
 			.setCharacteristic(Characteristic.Model, "HTTP Model")
 			.setCharacteristic(Characteristic.SerialNumber, "HTTP Serial Number");
 			
-		var volumeService = new Service.Switch("VolumeService");
+		var tvService = new Service.Switch("tvService");
 		
-			volumeService
-				.addCharecteristic(VolumeCharecteristic)
+			tvService
+				.addCharacteristic(VolumeCharacteristic)
 				.on("set",this.setVolume.bind(this));
 				
-		var channelService = new Service.Switch("ChannelService")
-		
-			channelService
+			tvService
+				.addCharacteristic(ChannelCharacteristic)
+				.on("set",this.setChannel.bind(this));
 
-		if (this.service == "Switch") {
-			var switchService = new Service.Switch(this.name);
-
-			switchService
-				.getCharacteristic(Characteristic.On)
-				.on('set', this.setPowerState.bind(this));
-
-			return [switchService];
-		} else if (this.service == "Light") {
-			var lightbulbService = new Service.Lightbulb(this.name);
-
-			lightbulbService
-				.getCharacteristic(Characteristic.On)
-				.on('set', this.setPowerState.bind(this));
-
-			if (this.brightnessHandling == "yes") {
-
-				lightbulbService
-					.addCharacteristic(new Characteristic.Brightness())
-					.on('set', this.setBrightness.bind(this));
-			}
-
-			return [informationService, lightbulbService];
+			return [informationService, tvService];
 		}
 	}
 };
