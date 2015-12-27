@@ -115,6 +115,16 @@ HttpAccessory.prototype = {
 			.setCharacteristic(Characteristic.Manufacturer, "HTTP Manufacturer")
 			.setCharacteristic(Characteristic.Model, "HTTP Model")
 			.setCharacteristic(Characteristic.SerialNumber, "HTTP Serial Number");
+			
+		var volumeService = new Service.Switch("VolumeService");
+		
+			volumeService
+				.addCharecteristic(VolumeCharecteristic)
+				.on("set",this.setVolume.bind(this));
+				
+		var channelService = new Service.Switch("ChannelService")
+		
+			channelService
 
 		if (this.service == "Switch") {
 			var switchService = new Service.Switch(this.name);
