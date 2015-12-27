@@ -12,19 +12,17 @@ function HttpAccessory(log, config) {
 	this.log = log;
 
 	// url info
-	this.on_url    = config["on_url"];
-	this.on_body   = config["on_body"];
-	this.off_url   = config["off_url"];
-	this.off_body  = config["off_body"];
-	this.brightness_url = config["brightness_url"];
+	this.api_url    = config["api_url"];
 	this.http_method = config["http_method"];
-	this.http_brightness_method = config["http_brightness_method"] || this.http_method;
+	this.volUp_body   = config["volUp_body"];
+	this.volDown_body   = config["volDown_body"];
+	this.chanUp_body  = config["chanUp_body"];
+	this.chanDown_body = config["chanDown_body"];
 	this.username = config["username"];
 	this.password = config["password"];
 	this.sendimmediately = config["sendimmediately"];
 	this.service = config["service"] || "Switch";
 	this.name = config["name"];
-	this.brightnessHandling = config["brightnessHandling"] || "no";
 }
 
 HttpAccessory.prototype = {
@@ -46,18 +44,18 @@ HttpAccessory.prototype = {
 			})
 	},
 
-	setPowerState: function(powerOn, callback) {
+	setVolume: function(volumeUp, callback) {
 		var url;
 		var body;
 
-		if (powerOn) {
-			url = this.on_url;
-			body = this.on_body;
-			this.log("Setting power state to on");
+		if (volumeUp) {
+			url = this.api_url;
+			body = this.volumeUp_body;
+			this.log("Turning up the volume");
 		} else {
-			url = this.off_url;
-			body = this.off_body;
-			this.log("Setting power state to off");
+			url = this.api_url;
+			body = this.volumeDown_body;
+			this.log("Turning down the volume");
 		}
 
 		this.httpRequest(url, body, this.http_method, this.username, this.password, this.sendimmediately, function(error, response, responseBody) {
@@ -74,17 +72,29 @@ HttpAccessory.prototype = {
 		}.bind(this));
 	},
 
-	setBrightness: function(level, callback) {
-		var url = this.brightness_url.replace("%b", level)
+	setChannel: function(channelUp, callback) {
+		var url;
+		var body;
 
-		this.log("Setting brightness to %s", level);
+		if (channelUp) {
+			url = this.api_url;
+			body = this.channelUp_body;
+			this.log("Channel up");
+		} else {
+			url = this.api_url;
+			body = this.channelDown_body;
+			this.log("Channel down");
+		}
 
-		this.httpRequest(url, "", this.http_brightness_method, this.username, this.password, this.sendimmediately, function(error, response, body) {
+		this.httpRequest(url, body, this.http_method, this.username, this.password, this.sendimmediately, function(error, response, responseBody) {
 			if (error) {
-				this.log('HTTP brightness function failed: %s', error);
+				this.log('HTTP power function failed: %s', error.message);
 				callback(error);
 			} else {
-				this.log('HTTP brightness function succeeded!');
+				this.log('HTTP power function succeeded!');
+				this.log(response);
+				this.log(responseBody);
+	
 				callback();
 			}
 		}.bind(this));
