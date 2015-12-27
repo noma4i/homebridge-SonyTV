@@ -1,10 +1,10 @@
-# homebridge-http-SonyTV
+# homebridge-SonyTV
 
 Supports Sony TVs on HomeBridge Platform
 
 # Installation
 
-TODO
+WIP
 
 # Configuration
 
