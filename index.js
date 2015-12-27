@@ -129,7 +129,7 @@ HttpAccessory.prototype = {
 		}
 	}
 	
-// Custom Characteristic for Volume
+	// Custom Characteristics
 
 	makeVolumeCharacteristic: function() {
 
