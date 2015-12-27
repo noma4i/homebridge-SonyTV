@@ -4,6 +4,10 @@ var request = require("request");
 module.exports = function(homebridge){
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
+  
+  makeVolumeCharacteristic();
+  makeChannelCharacteristic();
+  
   homebridge.registerAccessory("homebridge-sonytv", "Http", HttpAccessory);
 }
 
@@ -134,7 +138,25 @@ HttpAccessory.prototype = {
 	makeVolumeCharacteristic: function() {
 
   		VolumeCharacteristic = function() {
-    		Characteristic.call(this, 'Volume', '91288267-5678-49B2-8D22-F57BE995AA93');
+    		Characteristic.call(this, 'Volume', '19E1CF82-E0EE-410D-A23C-E80020354C13');
+    		this.setProps({
+		 format: Characteristic.Formats.INT,
+		 unit: Characteristic.Units.PERCENTAGE,
+		 maxValue: 100,
+		 minValue: 0,
+		 minStep: 1,
+		 perms: [Characteristic.Perms.READ, Characteristic.Perms.WRITE, Characteristic.Perms.NOTIFY]
+		});
+    		this.value = this.getDefaultValue();
+	};
+  
+  		inherits(VolumeCharacteristic, Characteristic);
+	}
+	
+	makeChannelCharacteristic: function() {
+
+  		ChannelCharacteristic = function() {
+    		Characteristic.call(this, 'Channel', '212131F4-2E14-4FF4-AE13-C97C3232499D');
     		this.setProps({
 		 format: Characteristic.Formats.INT,
 		 unit: Characteristic.Units.PERCENTAGE,
