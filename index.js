@@ -170,4 +170,3 @@ HttpAccessory.prototype = {
   
   		inherits(VolumeCharacteristic, Characteristic);
 	}
-};
