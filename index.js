@@ -17,16 +17,16 @@ function HttpAccessory(log, config) {
 	this.log = log;
 
 	// url info
-	this.api_url    = config["api_url"];
-	this.http_method = config["http_method"];
-	this.volUp_body   = config["volUp_body"];
-	this.volDown_body   = config["volDown_body"];
-	this.chanUp_body  = config["chanUp_body"];
-	this.chanDown_body = config["chanDown_body"];
-	this.username = config["username"];
-	this.password = config["password"];
-	this.sendimmediately = config["sendimmediately"];
-	this.name = config["name"];
+	this.api_url    	= config["api_url"];
+	this.http_method 	= config["http_method"];
+	this.volUp_body   	= config["volUp_body"];
+	this.volDown_bod	= config["volDown_body"];
+	this.chanUp_body	= config["chanUp_body"];
+	this.chanDown_body 	= config["chanDown_body"];
+	this.username 		= config["username"];
+	this.passwor		= config["password"];
+	this.sendimmediate	= config["sendimmediately"];
+	this.name 		= config["name"];
 }
 
 HttpAccessory.prototype = {
