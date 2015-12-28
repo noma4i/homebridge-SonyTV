@@ -151,7 +151,7 @@ HttpAccessory.prototype = {
 	}
   
   		inherits(VolumeCharacteristic, Characteristic);
-	},
+	}
 	
 	function makeChannelCharacteristic() {
 
