@@ -1,4 +1,4 @@
-var Service, Characteristic;
+var Service, Characteristic, VolumeCharacteristic, ChannelCharacteristic;
 var request = require("request");
 
 module.exports = function(homebridge){
