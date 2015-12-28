@@ -131,6 +131,7 @@ HttpAccessory.prototype = {
 
 			return [informationService, tvService];
 		}
+};
 	
 	// Custom Characteristics
 
@@ -169,4 +170,3 @@ HttpAccessory.prototype = {
   
   		inherits(ChannelCharacteristic, Characteristic);
 	}
-};
