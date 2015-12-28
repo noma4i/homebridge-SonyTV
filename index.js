@@ -167,6 +167,6 @@ HttpAccessory.prototype = {
     		this.value = this.getDefaultValue();
 	}
   
-  		inherits(VolumeCharacteristic, Characteristic);
+  		inherits(ChannelCharacteristic, Characteristic);
 	}
 };
