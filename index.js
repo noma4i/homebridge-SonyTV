@@ -1,5 +1,6 @@
 var Service, Characteristic, VolumeCharacteristic, ChannelCharacteristic;
 var request = require("request");
+var inherits = require('util').inherits;
 
 module.exports = function(homebridge){
   Service = homebridge.hap.Service;
