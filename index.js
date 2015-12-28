@@ -148,7 +148,7 @@ HttpAccessory.prototype = {
 		 perms: [Characteristic.Perms.READ, Characteristic.Perms.WRITE, Characteristic.Perms.NOTIFY]
 		});
     		this.value = this.getDefaultValue();
-	}
+	};
   
   		inherits(VolumeCharacteristic, Characteristic);
 	}
@@ -166,7 +166,7 @@ HttpAccessory.prototype = {
 		 perms: [Characteristic.Perms.READ, Characteristic.Perms.WRITE, Characteristic.Perms.NOTIFY]
 		});
     		this.value = this.getDefaultValue();
-	}
+	};
   
   		inherits(ChannelCharacteristic, Characteristic);
 	}
