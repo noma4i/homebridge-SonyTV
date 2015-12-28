@@ -2,6 +2,7 @@ var Service, Characteristic, VolumeCharacteristic, ChannelCharacteristic;
 var request = require("request");
 var inherits = require('util').inherits;
 
+
 module.exports = function(homebridge){
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
@@ -11,7 +12,6 @@ module.exports = function(homebridge){
   
   homebridge.registerAccessory("homebridge-sonytv", "Http", HttpAccessory);
 }
-
 
 function HttpAccessory(log, config) {
 	this.log = log;
