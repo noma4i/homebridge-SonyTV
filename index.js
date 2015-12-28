@@ -135,7 +135,7 @@ HttpAccessory.prototype = {
 	
 	// Custom Characteristics
 
-	makeVolumeCharacteristic: function() {
+	function makeVolumeCharacteristic() {
 
   		VolumeCharacteristic = function() {
     		Characteristic.call(this, 'Volume', '19E1CF82-E0EE-410D-A23C-E80020354C13');
@@ -153,7 +153,7 @@ HttpAccessory.prototype = {
   		inherits(VolumeCharacteristic, Characteristic);
 	},
 	
-	makeChannelCharacteristic: function() {
+	function makeChannelCharacteristic() {
 
   		ChannelCharacteristic = function() {
     		Characteristic.call(this, 'Channel', '212131F4-2E14-4FF4-AE13-C97C3232499D');
