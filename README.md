@@ -5,7 +5,7 @@ based on http://www.openremote.org/display/forums/Sony+TV+HTTP+control
 
 # Installation
 
-WIP
+WIP This plugin does not work yet
 
 # Configuration
 
